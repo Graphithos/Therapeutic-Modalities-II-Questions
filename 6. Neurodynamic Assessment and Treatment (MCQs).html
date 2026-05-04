@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Neurodynamic Assessment and Treatment Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Neurodynamic Assessment and Treatment Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Neurodynamic Assessment and Treatment: nerve anatomy, injury classification, and neurodynamic testing</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">35</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">35</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/35</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data from Neurodynamic Assessment and Treatment DOCX (extracted from 6. Neurodynamic Assessment and Treatment (MCQs).docx)
+        const originalQuizData = [
+            {
+                question: "Which layer of connective tissue surrounding a peripheral nerve is the outermost and toughest?",
+                options: [
+                    "Endoneurium",
+                    "Perineurium",
+                    "Epineurium",
+                    "Schwann cell sheath"
+                ],
+                answer: 2,
+                explanation: "Page 1"
+            },
+            {
+                question: "What is the primary function of Schwann cells in the peripheral nervous system?",
+                options: [
+                    "Producing cerebrospinal fluid",
+                    "Myelinating axons to increase nerve impulse speed",
+                    "Forming the blood-nerve barrier",
+                    "Providing structural support only"
+                ],
+                answer: 1,
+                explanation: "Page 2"
+            },
+            {
+                question: "The brachial plexus is formed by the ventral rami of which spinal nerves?",
+                options: [
+                    "C1-C4",
+                    "C4-T1",
+                    "C5-T1",
+                    "C6-T2"
+                ],
+                answer: 2,
+                explanation: "Page 2"
+            },
+            {
+                question: "Which terminal branch of the brachial plexus innervates the thenar muscles and provides sensory innervation to the lateral three and a half fingers?",
+                options: [
+                    "Radial nerve",
+                    "Median nerve",
+                    "Ulnar nerve",
+                    "Axillary nerve"
+                ],
+                answer: 1,
+                explanation: "Page 2"
+            },
+            {
+                question: "The lumbar plexus is formed by the ventral rami of which spinal nerves?",
+                options: [
+                    "T10-L1",
+                    "L1-L4 with contribution from T12",
+                    "L2-L5",
+                    "L4-S2"
+                ],
+                answer: 1,
+                explanation: "Page 7"
+            },
+            {
+                question: "The sacral plexus is located on the anterior surface of which muscle?",
+                options: [
+                    "Psoas major",
+                    "Quadratus lumborum",
+                    "Piriformis",
+                    "Gluteus maximus"
+                ],
+                answer: 2,
+                explanation: "Page 7"
+            },
+            {
+                question: "What is meant by the term 'excursion' in relation to peripheral nerves?",
+                options: [
+                    "The ability of nerves to slide and glide relative to surrounding tissues",
+                    "The speed of nerve impulse conduction",
+                    "The inflammatory response of a nerve",
+                    "The diameter of the nerve"
+                ],
+                answer: 0,
+                explanation: "Page 10"
+            },
+            {
+                question: "The perineurium can withstand what percentage of strain before failure?",
+                options: [
+                    "5-10%",
+                    "10-15%",
+                    "18-22%",
+                    "25-30%"
+                ],
+                answer: 2,
+                explanation: "Page 10"
+            },
+            {
+                question: "Which of the following is NOT a common cause of peripheral nerve injury?",
+                options: [
+                    "Compression",
+                    "Laceration",
+                    "Death",
+                    "Stretch"
+                ],
+                answer: 2,
+                explanation: "Page 10"
+            },
+            {
+                question: "Where is the radial nerve most commonly injured?",
+                options: [
+                    "Carpal tunnel",
+                    "Cubital tunnel",
+                    "Neck of fibula",
+                    "Spiral groove of the humerus"
+                ],
+                answer: 3,
+                explanation: "Page 11"
+            },
+            {
+                question: "According to Seddon's classification, which type of nerve injury is a transient physiological conduction block with no structural disruption of the axon?",
+                options: [
+                    "Neurotmesis",
+                    "Axonotmesis",
+                    "Neuropraxia",
+                    "Wallerian degeneration"
+                ],
+                answer: 2,
+                explanation: "Page 11"
+            },
+            {
+                question: "Which Seddon classification involves damage to the axon itself but intact surrounding nerve sheaths, allowing slow spontaneous recovery?",
+                options: [
+                    "Neuropraxia",
+                    "Axonotmesis",
+                    "Neurotmesis",
+                    "Compression neuropathy"
+                ],
+                answer: 1,
+                explanation: "Page 11"
+            },
+            {
+                question: "Neurotmesis is characterized by which of the following?",
+                options: [
+                    "Mild ischemia with no structural disruption",
+                    "Damage to the axon only",
+                    "Complete transection of the axon and all surrounding connective tissue sheaths",
+                    "Temporary conduction block"
+                ],
+                answer: 2,
+                explanation: "Page 11-12"
+            },
+            {
+                question: "A positive neurodynamic test is indicated by which of the following?",
+                options: [
+                    "No change in symptoms",
+                    "Reproduction of the patient's symptoms in the nerve distribution",
+                    "Increased muscle strength",
+                    "Decreased range of motion only"
+                ],
+                answer: 1,
+                explanation: "Page 13"
+            },
+            {
+                question: "When performing neurodynamic testing, which side should be tested first?",
+                options: [
+                    "The uninvolved or least symptomatic side",
+                    "The most symptomatic side",
+                    "Both sides simultaneously",
+                    "The dominant side"
+                ],
+                answer: 0,
+                explanation: "Page 13"
+            },
+            {
+                question: "Which of the following is a contraindication to neurodynamic testing and treatment?",
+                options: [
+                    "Chronic neck pain",
+                    "Muscle weakness",
+                    "Cauda equina symptoms",
+                    "Sensory changes"
+                ],
+                answer: 2,
+                explanation: "Page 13"
+            },
+            {
+                question: "What is the main goal of neural mobilization?",
+                options: [
+                    "To increase muscle strength",
+                    "To maximize nerve excursion while minimizing strain",
+                    "To decrease joint range of motion",
+                    "To increase blood pressure"
+                ],
+                answer: 1,
+                explanation: "Page 14"
+            },
+            {
+                question: "What type of neurodynamic technique produces greater amounts of nerve excursion compared to tensioners and is considered to afford the best results?",
+                options: [
+                    "Static holds",
+                    "Neural tensioners",
+                    "Sliders and gliding movements",
+                    "Passive stretching"
+                ],
+                answer: 2,
+                explanation: "Page 14"
+            },
+            {
+                question: "During the Upper Limb Tension Test 1 (ULTT1) for the median nerve, to what angle is the arm initially abducted?",
+                options: [
+                    "10 degrees",
+                    "90 degrees",
+                    "110 degrees",
+                    "180 degrees"
+                ],
+                answer: 2,
+                explanation: "Page 15"
+            },
+            {
+                question: "In ULTT2 (radial nerve), after extending the elbow, what movement is applied to the whole arm?",
+                options: [
+                    "Lateral rotation",
+                    "Medial rotation (forearm pronation included)",
+                    "Abduction to 180 degrees",
+                    "Wrist extension"
+                ],
+                answer: 1,
+                explanation: "Page 16"
+            },
+            {
+                question: "During ULTT3 (ulnar nerve), what position is the elbow placed in before depressing the shoulder girdle?",
+                options: [
+                    "Extended",
+                    "Pronated only",
+                    "Supinated",
+                    "Flexed"
+                ],
+                answer: 3,
+                explanation: "Page 16"
+            },
+            {
+                question: "The Straight Leg Raise (SLR) test is used to assess tension of which nerve?",
+                options: [
+                    "Femoral nerve",
+                    "Sciatic nerve and lumbosacral plexus",
+                    "Obturator nerve",
+                    "Tibial nerve only"
+                ],
+                answer: 1,
+                explanation: "Page 17"
+            },
+            {
+                question: "During the SLR test, which ankle position increases neural tension on the posterior tibial nerve?",
+                options: [
+                    "Plantarflexion and inversion",
+                    "Dorsiflexion and eversion",
+                    "Dorsiflexion only",
+                    "Plantarflexion only"
+                ],
+                answer: 1,
+                explanation: "Page 17"
+            },
+            {
+                question: "During the SLR test, passive cervical flexion pulls the spinal cord cranially, causing what effect?",
+                options: [
+                    "Relaxes the entire nervous system",
+                    "Stretches the entire nervous system",
+                    "Only affects the cervical spine",
+                    "Decreases neural tension in the lower limb"
+                ],
+                answer: 1,
+                explanation: "Page 18"
+            },
+            {
+                question: "The Slump Test begins with the patient in which position?",
+                options: [
+                    "Supine",
+                    "Prone",
+                    "Sitting upright",
+                    "Side-lying"
+                ],
+                answer: 2,
+                explanation: "Page 18"
+            },
+            {
+                question: "What is the sensitizing maneuver used during the Slump Test after neck flexion?",
+                options: [
+                    "Ankle dorsiflexion and knee extension",
+                    "Knee flexion and ankle plantarflexion",
+                    "Hip abduction and lateral rotation",
+                    "Wrist extension and elbow flexion"
+                ],
+                answer: 0,
+                explanation: "Page 18"
+            },
+            {
+                question: "The Prone Knee Bent test is used to assess which nerve?",
+                options: [
+                    "Sciatic nerve",
+                    "Tibial nerve",
+                    "Femoral nerve and upper lumbar nerve roots",
+                    "Common peroneal nerve"
+                ],
+                answer: 2,
+                explanation: "Page 18"
+            },
+            {
+                question: "During the Prone Knee Bent test, a positive sign is indicated by neurological changes. What might thigh pain alone indicate?",
+                options: [
+                    "Femoral nerve tension",
+                    "Rectus femoris tightness rather than nerve tension",
+                    "Sciatic nerve involvement",
+                    "Lumbar radiculopathy"
+                ],
+                answer: 1,
+                explanation: "Page 19"
+            },
+            {
+                question: "Neural tissue responds to trauma similarly to a ligament or tendon by evoking what process?",
+                options: [
+                    "Immediate regeneration",
+                    "Cascade of the inflammatory process",
+                    "Calcification",
+                    "Muscle hypertrophy"
+                ],
+                answer: 1,
+                explanation: "Page 11"
+            },
+            {
+                question: "What should be the nature of neural mobilization techniques according to the principles of management?",
+                options: [
+                    "Slow, rhythmic, oscillatory, and symptom-free",
+                    "Fast, aggressive, and painful",
+                    "Static holds at end range",
+                    "High amplitude thrusts"
+                ],
+                answer: 0,
+                explanation: "Page 14"
+            },
+            {
+                question: "During neurodynamic testing, active testing should precede passive testing for what reason?",
+                options: [
+                    "To increase patient strength",
+                    "To reduce patient anxiety",
+                    "To assess joint range of motion first",
+                    "To warm up the muscles"
+                ],
+                answer: 1,
+                explanation: "Page 13"
+            },
+            {
+                question: "Which of the following is a clinical feature of impaired neural tissues?",
+                options: [
+                    "Muscle hypertrophy",
+                    "Increased reflexes",
+                    "Burning, numbness, sharp shooting pain"
+                ],
+                answer: 2,
+                explanation: "Page 12"
+            },
+            {
+                question: "The ulnar nerve is most commonly injured or entrapped at which location?",
+                options: [
+                    "Carpal tunnel",
+                    "Spiral groove",
+                    "Elbow (cubital tunnel) and wrist (Guyon's canal)",
+                    "Neck of fibula"
+                ],
+                answer: 2,
+                explanation: "Page 11"
+            },
+            {
+                question: "Where is the common peroneal nerve most vulnerable to injury?",
+                options: [
+                    "Neck of fibula",
+                    "Popliteal fossa",
+                    "Tarsal tunnel",
+                    "Groin"
+                ],
+                answer: 0,
+                explanation: "Page 11"
+            },
+            {
+                question: "In neurodynamic assessment, why should each joint first be assessed for ROM and mobility?",
+                options: [
+                    "To determine muscle strength",
+                    "To rule out non-neural restrictions",
+                    "To apply the most aggressive technique",
+                    "No need to assess joints separately"
+                ],
+                answer: 1,
+                explanation: "Page 13"
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data
+        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Neurodynamic Assessment and Treatment.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
