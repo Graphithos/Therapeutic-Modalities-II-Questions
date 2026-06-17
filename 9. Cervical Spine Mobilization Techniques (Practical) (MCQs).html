@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Cervical Spine Mobilization Techniques</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Cervical Spine Mobilization Techniques</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Cervical Spine Mobilization: techniques, clinical reasoning, and contraindications</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data extracted from 9. Cervical Spine Mobilization Techniques (Practical) (MCQs).pdf
+        const originalQuizData = [
+            {
+                question: "You are treating a patient with generalized bilateral neck stiffness. You decide to perform an Anterior Directed Central Glide. What are the appropriate anatomical boundaries for applying this specific technique according to the guidelines?",
+                options: [
+                    "Occiput to C2",
+                    "C2 to C6",
+                    "C4 to T1",
+                    "T1 to T4"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "During an Anterior Directed Central Glide in the prone position, how should the patient's cervical spine and head be positioned to optimize the mechanical effectiveness of the mobilization?",
+                options: [
+                    "The head should be maximally extended to lock the facet joints.",
+                    "The head should be rotated fully to the right.",
+                    "The head should be in a flexed position with the chin slightly tucked in.",
+                    "The head should be turned to face the therapist."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient presents with a severe cervicogenic headache. Palpation reveals unilateral tenderness specifically over the C2-C3 articular pillar. Which direct mobilization technique is explicitly indicated for dysfunction at this specific 'headache joint'?",
+                options: [
+                    "Accessory Rotation",
+                    "Longitudinal Distraction Gliding",
+                    "Anterior Directed Unilateral Gliding",
+                    "Posterior to Anterior (PA) Glide on the spinous process"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient complains of a unilateral headache stemming from a painful C1-C2 apophyseal joint. How does the setup for an Anterior Unilateral Glide at this level differ mechanically from performing it at C4-C5?",
+                options: [
+                    "At C1-C2, the force is directed strictly medial-to-lateral.",
+                    "At C1-C2, the head must be rotated approximately 30 degrees towards the painful side before applying the glide.",
+                    "At C1-C2, the neck must be placed in exactly 45 degrees of flexion.",
+                    "At C1-C2, the patient must be positioned supine rather than prone."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "When performing an Anterior Unilateral Gliding with Head Rotation for a C1-C2 dysfunction, what subtle mechanical adjustment is required regarding the direction of the therapist's thumbs?",
+                options: [
+                    "They must point strictly inferiorly toward the thoracic spine.",
+                    "They must be tilted medially to press against the spinous process.",
+                    "They are crossed over one another to create a torque effect.",
+                    "They remain postero-anteriorly directed but are tilted slightly towards the patient's head."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "You have chosen to perform an Accessory Rotation mobilization on a patient with severe, acute left-sided neck pain. According to the essential rules for unilateral pain, how should the rotation be applied mechanically?",
+                options: [
+                    "The head should be rotated forcefully towards the left (painful side) to break the restriction.",
+                    "The head should be kept in a perfectly neutral position while only the thorax is rotated.",
+                    "The head should be rotated away from the painful side (towards the right).",
+                    "The rotation must be performed in conjunction with maximum extension."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient presents with restricted mid-cervical (C3-C4) mobility and requires an indirect accessory rotation technique. How is mechanical specificity achieved for this target region during the setup?",
+                options: [
+                    "By flexing the neck approximately 30 degrees.",
+                    "By holding the neck on the same plane as the body (neutral).",
+                    "By flexing the neck approximately 45 degrees.",
+                    "By maximally extending the neck over the edge of the couch."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "If a therapist needs to target the lower cervical spine (C7-T1) using an indirect Accessory Rotation mobilization, what specific neck angle must be established to ensure the mechanical forces are localized correctly?",
+                options: [
+                    "Neutral (same plane as body)",
+                    "15 degrees of extension",
+                    "Approximately 30 degrees of flexion",
+                    "Approximately 45 degrees of flexion"
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "A patient with right-sided neck pain demonstrates highly restricted and painful cervical rotation to the right. The therapist decides to use a Lateral Flexion Mobilization instead. What is the mechanical logic behind this choice?",
+                options: [
+                    "Lateral flexion directly stretches the anterior longitudinal ligament, which instantly relieves rotational pain.",
+                    "Lateral flexion causes the facet joints to compress, which numbs the pain receptors.",
+                    "When rotation is restricted, lateral flexion is generally also restricted and limits rotation; mobilizing one plane often frees the other.",
+                    "Lateral flexion forces a reflex muscle spasm that stabilizes the hypermobile segment causing the pain."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "When applying a Lateral Flexion Mobilization for a patient with right-sided unilateral pain, what is the key mechanical principle regarding the direction of the movement?",
+                options: [
+                    "The head must be laterally flexed towards the right to close the painful joint space.",
+                    "The head must be laterally flexed towards the left (away from the painful side) to mechanically gap the stiff joints on the right.",
+                    "The neck must be kept perfectly straight while only the thorax is laterally flexed.",
+                    "The movement must be combined with a high-velocity extension thrust."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "During a specific Lateral Flexion Mobilization for a painful left side, the therapist places their index finger firmly against the right articular pillar. What is the biomechanical purpose of this hand placement?",
+                options: [
+                    "It prevents the patient from suddenly rotating their head.",
+                    "It acts as a static fulcrum against the articular pillar to help achieve gapping on the opposite (painful) side of the spine.",
+                    "It compresses the right facet joint to transfer the pain away from the left side.",
+                    "It specifically stretches the right sternocleidomastoid muscle."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "Manual Longitudinal Distraction Gliding (Traction) is indicated for all of the following conditions EXCEPT:",
+                options: [
+                    "Nerve root irritation",
+                    "Wry neck (torticollis)",
+                    "Acute hyper-extension injury without established diagnosis",
+                    "Severe degenerative changes"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A therapist is setting up to perform Manual Traction on a patient's cervical spine. Which mechanical precaution is strictly emphasized to prevent injury during this specific technique?",
+                options: [
+                    "Always apply traction while the neck is in a maximally extended position.",
+                    "Use only the arm muscles to generate the traction force to ensure maximum speed.",
+                    "Ensure the grip on the chin involves the entire hand pressing firmly against the upper throat.",
+                    "Avoid applying traction to an extended neck."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "During the application of Manual Cervical Traction, what is the most critical mechanical rule regarding the release of the traction force?",
+                options: [
+                    "The force must be released suddenly to elicit a beneficial stretch reflex.",
+                    "The force must be maintained constantly for at least 15 minutes before any release is attempted.",
+                    "The traction force must be taken up slowly and released gently, as sudden release exacerbates irritable conditions.",
+                    "The release must be accompanied by a rapid rotational manipulation."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "You are treating an irritable spine and plan to use manual traction to target the upper cervical region (occiput to C2). According to the traction angle guidelines, how should the neck be positioned mechanically?",
+                options: [
+                    "Flexed at 30 degrees",
+                    "Flexed at 45 degrees",
+                    "Held on the same plane as the body (neutral)",
+                    "Maximally extended"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient presents with acute, severe, central neck pain resulting in torticollis. Which technique type is considered appropriate for addressing this hyperacute presentation?",
+                options: [
+                    "Muscle Energy technique",
+                    "Direct Transverse Gliding",
+                    "Direct Lateral Flexion",
+                    "High-velocity PA thrust"
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "A patient presents with an acutely tender neck following a minor whiplash incident. Why might a therapist logically choose an indirect rotation mobilization over a direct anterior directed glide as a first-line treatment?",
+                options: [
+                    "Direct gliding techniques are ineffective for whiplash injuries.",
+                    "Indirect rotation requires less therapist effort.",
+                    "Direct anterior directed gliding techniques, while excellent, may not be physically possible or tolerated in an acutely tender neck due to direct pressure on inflamed tissues.",
+                    "Indirect rotation permanently locks the hypermobile segments caused by whiplash."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "What is the primary difference in mechanical intention between a Posterior to Anterior (PA) Glide on a spinous process versus a Lateral Glide on a spinous process in the cervical spine?",
+                options: [
+                    "PA Glide aims to increase segmental mobility; Lateral Glide aims to increase general mobility.",
+                    "PA Glide is only for the thoracic spine; Lateral Glide is only for the cervical spine.",
+                    "PA Glide uses the pisiform; Lateral Glide uses the thumbs.",
+                    "PA Glide induces rotation; Lateral Glide induces flexion."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "During a Posterior to Anterior (PA) Glide, a therapist may choose a variation where the thumbs are placed on the transverse processes rather than the spinous process. What mechanical effect does this variation primarily achieve if applied unilaterally?",
+                options: [
+                    "It strictly decompresses the intervertebral disc.",
+                    "It induces a localized rotational force at that specific spinal segment.",
+                    "It forcefully stretches the ligamentum nuchae.",
+                    "It completely isolates the mobilization force to the anterior longitudinal ligament."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "When setting up an Anterior Directed Central Glide, the therapist is instructed to maintain the longitudinal axis of the thumbs in a direct postero-anterior direction. Why is this specific alignment critical?",
+                options: [
+                    "It prevents the therapist's fingernails from cutting the patient.",
+                    "It allows the therapist to use their elbow flexors rather than body weight.",
+                    "It forces the patient's neck into maximum extension automatically.",
+                    "It ensures the mobilization force is transmitted purely centrally through the spinous process without inducing unwanted lateral rotation or shear forces."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "In an Anterior Directed Central Glide, the mobilization pressure is transmitted through the thumbs by movement of the trunk and arms, beginning with gentle rhythmic oscillations (1-2 per second). What is the logical clinical purpose of starting with this specific gentle rhythm?",
+                options: [
+                    "To rapidly fatigue the paraspinal muscles and force them to relax.",
+                    "To act as an assessment tool to gauge tissue resistance and patient tolerance before increasing depth and amplitude.",
+                    "To immediately break any fibrous adhesions within the facet joint capsule.",
+                    "To stimulate the sympathetic nervous system and increase local blood flow instantly."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "A therapist is treating a C5-C6 unilateral joint dysfunction using an Anterior Directed Unilateral Glide. If the thumbs are placed approximately 2-3 cm from the midline, what specific anatomical structure are they pressing against to mobilize the joint?",
+                options: [
+                    "The tip of the spinous process",
+                    "The anterior aspect of the vertebral body",
+                    "The articular pillar",
+                    "The transverse ligament of the atlas"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "During an Accessory Rotation mobilization performed with the patient supine, the therapist gently cradles the head and rotates it using equal movements of both hands. What is the biomechanical advantage of this specific 'cradled' method compared to a single-handed push?",
+                options: [
+                    "It completely eliminates all movement below C2.",
+                    "It allows the therapist to apply traction simultaneously with rotation.",
+                    "It produces a smooth oscillatory movement around a constant axis of direction, minimizing unwanted sheer forces on irritable joints.",
+                    "It ensures the patient's mouth remains closed to protect the jaw."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient has bilateral mid-cervical pain. Which two indirect techniques are logically indicated as primary options for central or bilateral pain?",
+                options: [
+                    "Accessory Rotation and Lateral Flexion",
+                    "Lateral Flexion and Muscle Energy",
+                    "Longitudinal Distraction Gliding and Accessory Rotation",
+                    "Anterior Directed Central Gliding and Accessory Rotation"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "According to the 'Rules of Procedure' for Lateral Flexion Mobilization, the technique is considered most effective when applied at which stage(s) of a treatment progression?",
+                options: [
+                    "Exclusively as a stage 1 procedure for acute pain assessment.",
+                    "Only after a high-velocity thrust has failed.",
+                    "As a final, stage 4 procedure only.",
+                    "As a stage 2 or 3 procedure."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "When applying Manual Traction, the therapist holds the chin using only the lower three fingers. What is the anatomical rationale for this specific grip?",
+                options: [
+                    "To maximize the leverage required to pull the mandible forward.",
+                    "To avoid applying undue pressure on the upper throat and trachea, which could cause discomfort or choking.",
+                    "To specifically target traction forces to the temporomandibular joint (TMJ).",
+                    "To prevent the patient from speaking during the procedure."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "A therapist needs to apply manual traction targeted at the C4-C5 segments. Following the traction angle guidelines, how should the patient's neck be positioned to ensure the traction force is localized appropriately?",
+                options: [
+                    "In a neutral plane",
+                    "Flexed approximately 30 degrees",
+                    "Flexed approximately 45 degrees",
+                    "Extended approximately 15 degrees"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "The core essential rule for performing cervical mobilizations (such as rotation or lateral flexion) states that the therapist must always move the patient away from the painful side. What is the primary clinical logic behind this strict rule?",
+                options: [
+                    "The goal is to avoid aggravating the patient's pain while still achieving mechanical gapping of the affected stiff joint.",
+                    "Moving towards the pain indicates the joint is already hypermobile and needs to be left alone.",
+                    "Moving away from the pain causes the muscles on the painful side to spasm, which creates a natural splint.",
+                    "The painful side always presents with a physical bony block that cannot be moved."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "A patient presents with acute unilateral right-sided neck pain. Direct anterior gliding techniques are too painful to tolerate. Which specific indirect technique is highlighted as an appropriate 'first-line treatment' in this acutely tender scenario?",
+                options: [
+                    "Lateral Flexion Mobilization",
+                    "Anterior Directed Central Gliding",
+                    "Rotation Mobilization (Accessory Rotation)",
+                    "Manual Traction in extension"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "In the context of cervical mobilization, how is 'localization' (achieving specificity for an indirect technique) primarily accomplished?",
+                options: [
+                    "Only through varying the angle of neck flexion.",
+                    "Only by altering the speed of the oscillatory movement.",
+                    "By placing the hand directly over the appropriate affected spinal level while performing the movement.",
+                    "By applying maximum traction force prior to any other movement."
+                ],
+                answer: 2,
+                explanation: ""
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data
+        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        ${question.explanation ? `<br><br>Explanation: ${question.explanation}` : ''}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Cervical Spine Mobilization.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        ${item.explanation ? `<div class="review-explanation">${item.explanation}</div>` : ''}
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
