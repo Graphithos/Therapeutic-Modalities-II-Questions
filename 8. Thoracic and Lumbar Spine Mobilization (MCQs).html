@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Thoracic and Lumbar Spine Mobilization Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Thoracic and Lumbar Spine Mobilization Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Thoracic and Lumbar Spine Mobilization: techniques, clinical reasoning, and contraindications</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data from Thoracic and Lumbar Spine Mobilization PDF (extracted from 8. Thoracic and Lumbar Spine Mobilization (MCQs).pdf)
+        const originalQuizData = [
+            {
+                question: "Why is rotational movement significantly more available in the thoracic spine compared to flexion and extension?",
+                options: [
+                    "The thoracic discs are substantially thicker than in other spinal regions.",
+                    "The facet joints are oriented in the coronal plane, which limits flexion/extension but allows rotation.",
+                    "The presence of the rib cage selectively blocks lateral flexion while facilitating rotation.",
+                    "The facet joints are oriented in the sagittal plane."
+                ],
+                answer: 1,
+                explanation: "Page 1"
+            },
+            {
+                question: "A patient complains of chronic shoulder and neck pain, but local treatments to those areas have failed. Why might a therapist logically choose to evaluate and treat the thoracic spine in this scenario?",
+                options: [
+                    "The thoracic spine directly innervates the primary musculature of the shoulder.",
+                    "Thoracic kyphosis mechanically shortens the cervical nerve roots, causing localized nerve death.",
+                    "The thoracic spine is known as the 'Cinderella region' and is a silent contributor to referred pain in the neck and shoulder.",
+                    "The ribs articulate directly with the clavicle and scapula, creating localized impingements."
+                ],
+                answer: 2,
+                explanation: "Page 1"
+            },
+            {
+                question: "If a patient has a structural limitation in thoracic flexion, which anatomical feature acts as the primary mechanical restraint to this specific movement?",
+                options: [
+                    "The orientation of the apophyseal joints",
+                    "The thickness of the intervertebral discs",
+                    "The length of the spinous processes",
+                    "The length of the transverse processes"
+                ],
+                answer: 0,
+                explanation: "Page 1"
+            },
+            {
+                question: "A patient presents with midline thoracic pain and limited extension. Based on clinical indications, which mobilization technique is most logically selected to address this?",
+                options: [
+                    "Anterior Directed Unilateral Gliding",
+                    "Transverse Directed Rotational Gliding",
+                    "Anterior Directed Central Gliding",
+                    "Rib Mobilization in Rotation"
+                ],
+                answer: 2,
+                explanation: "Page 1"
+            },
+            {
+                question: "During a Transverse Directed Rotational Glide for unilateral thoracic pain, what is the correct mechanical principle for applying the oscillatory pressure?",
+                options: [
+                    "The force should be directed specifically away from the painful side.",
+                    "The force should be applied strictly in a posterior-to-anterior direction.",
+                    "The force should be directed always towards the painful side.",
+                    "The force should be applied directly to the center of the intervertebral disc."
+                ],
+                answer: 2,
+                explanation: "Page 2"
+            },
+            {
+                question: "When performing an Anterior Directed Central Glide on the thoracic spine, why might a therapist logically choose to use the pisiform rather than the thumbs?",
+                options: [
+                    "The thumbs are too broad to effectively isolate a single spinous process.",
+                    "The therapist needs to apply a greater force that could cause thumb discomfort or injury.",
+                    "The pisiform is more sensitive to subtle tissue changes than the thumbs.",
+                    "The pisiform naturally induces a transverse rotational torque needed for extension."
+                ],
+                answer: 1,
+                explanation: "Page 2"
+            },
+            {
+                question: "A patient with unilateral costovertebral joint pain at T6 requires Rib Mobilization in Rotation. To achieve a comfortable stretch before applying oscillation, how should the therapist logically position the patient's trunk?",
+                options: [
+                    "Rotate the patient towards the painful side.",
+                    "Flex the patient's trunk completely forward.",
+                    "Rotate the patient away from the painful side.",
+                    "Induce maximum lateral flexion towards the painful side."
+                ],
+                answer: 2,
+                explanation: "Page 2"
+            },
+            {
+                question: "When preparing to perform Transverse Directed Rotational Gliding on the thoracic spine, where should the therapist stand to ensure optimal mechanics and patient comfort?",
+                options: [
+                    "On the pain-free side",
+                    "On the painful side, facing the patient's feet",
+                    "Directly at the head of the treatment table",
+                    "Directly on the painful side, pushing medially"
+                ],
+                answer: 0,
+                explanation: "Page 2"
+            },
+            {
+                question: "A patient with severe, acute thoracic pain from an unresolved inflammatory condition is referred for physical therapy. What is the most appropriate, evidence-based clinical decision regarding joint mobilization?",
+                options: [
+                    "Perform high-velocity manipulation to manually break up the localized inflammation.",
+                    "Perform Grade 4 oscillations to flush out inflammatory mediators.",
+                    "Apply deep soft tissue mobilization directly over the inflamed apophyseal joints.",
+                    "Avoid mobilizing the area until the acute injury or unresolved inflammation subsides."
+                ],
+                answer: 3,
+                explanation: "Page 3"
+            },
+            {
+                question: "Which of the following systemic conditions necessitates specific caution or avoidance when considering thoracic spine mobilization due to potential bone fragility?",
+                options: [
+                    "Forward head posture",
+                    "Osteoporosis",
+                    "Thoracolumbar junction dysfunction",
+                    "Muscle strain"
+                ],
+                answer: 1,
+                explanation: "Page 3"
+            },
+            {
+                question: "Why is combining mobilization with strengthening exercises logically considered the optimal practice for ensuring long-term outcomes in postural dysfunction?",
+                options: [
+                    "Mobilization temporarily increases pain, which strengthening safely blocks.",
+                    "Mobilization restores necessary mobility, while strengthening maintains those improvements and enhances functional stability.",
+                    "Mobilization fuses the restrictive joints, while strengthening breaks the fusion safely.",
+                    "Strengthening stretches the ligaments so mobilization can be performed without anatomical resistance."
+                ],
+                answer: 1,
+                explanation: "Page 3"
+            },
+            {
+                question: "A patient demonstrates excellent lumbar flexion and extension but severely limited lumbar rotation. Based on typical vertebral mechanics, how should this be interpreted clinically?",
+                options: [
+                    "It indicates a severe pathology, as lumbar rotation should normally equal thoracic rotation.",
+                    "It suggests an anomaly in the size of the lumbar vertebral bodies.",
+                    "It is a normal biomechanical finding, as lumbar facet joint orientation allows flexion/extension but limits rotation.",
+                    "It indicates a complete tear of the stabilizing transverse ligaments."
+                ],
+                answer: 2,
+                explanation: "Page 4"
+            },
+            {
+                question: "Structurally, why are the lumbar vertebrae the largest and widest in the spinal column?",
+                options: [
+                    "To provide maximum attachment space for the diaphragm and respiratory muscles.",
+                    "To accommodate the largest and thickest portion of the spinal cord.",
+                    "To allow for the greatest degree of rotational flexibility in the entire spine.",
+                    "To provide the necessary structural support for the weight of the upper body."
+                ],
+                answer: 3,
+                explanation: "Page 4"
+            },
+            {
+                question: "A patient complains of acute low back pain with sciatica radiating down the right leg. Palpation reveals an 'upslip' (higher pelvic tilt) on the right ischial tuberosity. What is the most logical initial traction strategy?",
+                options: [
+                    "Apply traction exclusively to the left leg to level the pelvis forcefully.",
+                    "Apply bilateral traction simultaneously to ensure perfectly even force distribution.",
+                    "Apply traction to the right leg first to address the hypomobile lesion, then proceed to both legs.",
+                    "Avoid traction entirely, as radiating sciatica is an absolute contraindication for distraction."
+                ],
+                answer: 2,
+                explanation: "Page 4"
+            },
+            {
+                question: "During the application of Longitudinal Distraction Gliding (traction) using the belt method, the patient reports that their pain is steadily increasing. What is the appropriate logical response based on the decision guide?",
+                options: [
+                    "Maintain the current traction force for exactly 2 minutes to allow guarding muscles to fatigue.",
+                    "Stop and ease off the traction gently.",
+                    "Increase the traction force slightly to push past the painful tissue barrier.",
+                    "Immediately apply a high-velocity localized thrust."
+                ],
+                answer: 1,
+                explanation: "Page 5"
+            },
+            {
+                question: "If a patient's lumbar pain remains completely unchanged during the application of gentle belt traction, what does the clinical decision guide recommend as the logical next step?",
+                options: [
+                    "Stop the treatment immediately and reassess entirely.",
+                    "Switch immediately to a rotational manipulation technique.",
+                    "Discontinue traction and apply a palliative ice pack.",
+                    "Apply stronger traction."
+                ],
+                answer: 3,
+                explanation: "Page 5"
+            },
+            {
+                question: "You decide to use the thumb method for an Anterior Directed Central Glide on a patient's lumbar spine. What is the primary mechanical limitation of this specific hand placement?",
+                options: [
+                    "It cannot be used safely if the patient is in a prone position.",
+                    "It naturally forces the therapist to stand on the pain-free side, altering leverage.",
+                    "It inherently causes sharp pain in patients with facet joint dysfunction.",
+                    "It limits the overall amount of force that can be applied, making it best suited only for early-stage mobilization."
+                ],
+                answer: 3,
+                explanation: "Page 5"
+            },
+            {
+                question: "A patient with chronic low back pain presents with unilateral pain localized lateral to the spinous process. Which mobilization technique is mechanically designed to target this specific dysfunction?",
+                options: [
+                    "Anterior Directed Central Glide",
+                    "Longitudinal Distraction Gliding",
+                    "Anterior Directed Unilateral Gliding",
+                    "Rib Mobilization in Rotation"
+                ],
+                answer: 2,
+                explanation: "Page 5"
+            },
+            {
+                question: "During an Anterior Directed Central Glide of the lumbar spine, the therapist is instructed to rock their upper trunk to provide oscillatory movement. Why is this mechanically preferred over pushing primarily with arm muscle strength?",
+                options: [
+                    "Arm muscles cannot achieve a true posterior-to-anterior force vector.",
+                    "It creates a transverse rotational glide rather than a pure central glide.",
+                    "It relies on controlled body weight transmission, ensuring a firm, controlled force without rapid therapist fatigue.",
+                    "It allows the therapist to maintain bent elbows for better reactive shock absorption."
+                ],
+                answer: 2,
+                explanation: "Page 6"
+            },
+            {
+                question: "A patient with chronic low back pain and limited extension receives PA mobilizations and hip flexor stretches. Why is stretching the hip flexors a logical mechanical complement to PA mobilizations in this scenario?",
+                options: [
+                    "Tight hip flexors contribute to a flat-back posture, which PA mobilizations tend to worsen.",
+                    "Tight hip flexors can restrict lumbar extension, which PA mobilizations are actively attempting to restore.",
+                    "Hip flexor stretches directly decompress the lumbar intervertebral discs without spinal force.",
+                    "PA mobilizations naturally cause severe hip flexor spasms that must be relieved immediately afterward."
+                ],
+                answer: 1,
+                explanation: "Page 6"
+            },
+            {
+                question: "A patient is treated with Grade 2 PA mobilizations and thoracic rotation techniques to address postural issues. How do these combined movements mechanically aid in correcting posture?",
+                options: [
+                    "They deliberately increase thoracic flexion to counterbalance a naturally extended cervical spine.",
+                    "They selectively stretch the anterior longitudinal ligament while actively strengthening the rectus abdominis.",
+                    "They mechanically fuse the unstable thoracic segments to prevent further postural collapse.",
+                    "PA mobilizations improve sagittal mobility, while rotation frees mobility restrictions, allowing the spine to assume a more optimal upright alignment."
+                ],
+                answer: 3,
+                explanation: "Page 6"
+            },
+            {
+                question: "A patient presents with breathing dysfunction and a feeling of restrictive 'tightness' around the chest wall, but denies localized spinal pain. Which manual therapy technique is most directly and logically indicated?",
+                options: [
+                    "Longitudinal Distraction Gliding",
+                    "Transverse Directed Rotational Gliding",
+                    "Rib Mobilization",
+                    "Lumbar Posterior-Anterior Mobilization"
+                ],
+                answer: 2,
+                explanation: "Page 7"
+            },
+            {
+                question: "You are evaluating a patient for thoracic mobilization and note that they have severe, unresolved inflammation from a recent acute injury. Why is mobilization strictly contraindicated in this physiological state?",
+                options: [
+                    "The facet joints become locked in a coronal plane and physically cannot be mobilized after trauma.",
+                    "Mobilization could exacerbate tissue damage and increase the inflammatory response in an already compromised joint.",
+                    "Inflammation causes the spinous processes to retract, making accurate hand placement impossible.",
+                    "Mobilization forces will instantly cause an acute intervertebral disc herniation."
+                ],
+                answer: 1,
+                explanation: "Page 7"
+            },
+            {
+                question: "When positioning a patient for an Anterior Directed Central Glide on the thoracic spine, the therapist lowers the top of the couch. What is the biomechanical purpose of this specific positioning?",
+                options: [
+                    "To allow partial forward flexion of the thoracic spine by having the arms rest over the side.",
+                    "To place the lumbar spine into maximum extension.",
+                    "To increase the lordotic curve of the cervical spine.",
+                    "To prevent the patient from utilizing diaphragmatic breathing during the procedure."
+                ],
+                answer: 0,
+                explanation: "Page 7"
+            },
+            {
+                question: "A patient experiences significant relief from lumbar sciatica radiating to the foot when traction is applied. What is the primary mechanical mechanism by which traction alleviates these specific neurological symptoms?",
+                options: [
+                    "It induces a state of hyper-lordosis, removing tension from the dural sac.",
+                    "It permanently stretches the sciatic nerve so it accommodates to transmitting pain signals.",
+                    "It forces the facet joints into a locked, rotationally stable position.",
+                    "It improves the spacing between vertebrae, reducing mechanical pressure on the affected nerve roots."
+                ],
+                answer: 3,
+                explanation: "Page 8"
+            },
+            {
+                question: "A therapist chooses to use the thumb method for an Anterior Directed Central Glide on the lumbar spine. Why is this specific technique logically advantageous for an initial assessment or early-stage mobilization?",
+                options: [
+                    "It permits the maximum possible force to be applied safely.",
+                    "It simultaneously mobilizes the bilateral costovertebral joints along with the spine.",
+                    "It allows the therapist to stand with bent arms to achieve a superior leverage angle.",
+                    "The thumbs are highly sensitive to subtle tissue changes and local resistance."
+                ],
+                answer: 3,
+                explanation: "Page 8"
+            },
+            {
+                question: "Why is the effectiveness of manual mobilization for a lumbar disc herniation considered a debated topic, yet still clinically utilized?",
+                options: [
+                    "It cures the herniation completely, but requires an impractical number of treatment sessions.",
+                    "High-velocity thrusts are absolutely required to fix the disc, which many patients refuse.",
+                    "While it may not reverse the structural herniation, mild mobilization can be beneficial for managing pain and aiding functional recovery.",
+                    "It is strictly contraindicated and its use in clinics is considered an outdated error."
+                ],
+                answer: 2,
+                explanation: "Page 8"
+            },
+            {
+                question: "When performing Rib Mobilization in a prone position, the therapist places the medial border of their hand over the affected rib as it curves around the posterior wall. Why is this precise hand placement logically necessary?",
+                options: [
+                    "To avoid pressing directly on the vulnerable spinal cord.",
+                    "To ensure the mobilized force is directed entirely into the lung tissue beneath.",
+                    "To physically separate the rib completely from the costotransverse joint prior to gliding.",
+                    "To apply force in a direction that anatomically matches the rib's posterior curvature and articulation."
+                ],
+                answer: 3,
+                explanation: "Page 9"
+            },
+            {
+                question: "A patient has midline back pain and the therapist decides to perform an Anterior Directed Central Glide. Why is the pressure applied as a rhythmic oscillation rather than a single, sustained, rigid push?",
+                options: [
+                    "Sustained pressure causes instantaneous and irreversible muscle atrophy.",
+                    "Oscillatory movements provide a controlled, graded force that facilitates joint mobility and pain modulation without causing tissue trauma.",
+                    "Oscillatory movements are required to generate the localized friction heat necessary to melt fascial adhesions.",
+                    "A single, sustained push is mechanically only effective for cervical spine mobilization."
+                ],
+                answer: 1,
+                explanation: "Page 9"
+            },
+            {
+                question: "Which of the following specific physical findings during a pelvic tilt assessment would logically dictate that traction should NOT be applied symmetrically to both legs at the exact same time initially?",
+                options: [
+                    "Both ischial tuberosities are perfectly level upon palpation.",
+                    "The patient reports bilateral, perfectly symmetrical lower back pain.",
+                    "Palpation reveals an 'upslip' where one ischial tuberosity is situated higher than the other.",
+                    "The patient demonstrates an excessive degree of normal lumbar lordosis."
+                ],
+                answer: 2,
+                explanation: "Page 9"
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data
+        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Thoracic and Lumbar Spine Mobilization.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
