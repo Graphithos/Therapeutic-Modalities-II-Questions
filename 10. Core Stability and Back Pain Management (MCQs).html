@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Core Stability and Back Pain Management</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Core Stability and Back Pain Management</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Core Stability and Back Pain Management: concepts, protocols, and clinical applications</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data extracted from 10. Core Stability and Back Pain Management (MCQs).pdf
+        const originalQuizData = [
+            {
+                question: "A patient performs a heavy lifting task and experiences an increase in compressive forces on the spine. Based on the functional anatomy described, which specific abdominal muscle logically acts primarily like a supportive corset to provide deep spinal protection and stability?",
+                options: [
+                    "Rectus abdominis",
+                    "External abdominal oblique",
+                    "Transverse abdominis",
+                    "Internal abdominal oblique"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient performs 500 crunches daily expecting to lose abdominal fat but sees no change in girth. Based on the provided text, what is the logical explanation for this failure?",
+                options: [
+                    "Crunches only target the internal obliques, leaving superficial fat intact.",
+                    "Abdominal exercises alone do not reduce abdominal fat; an energy deficit is required.",
+                    "The patient is not performing the exercises rapidly enough to burn local fat.",
+                    "Abdominal exercises paradoxically increase abdominal fat by pushing it outward."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "According to the theory behind Williams Flexion Exercises, why is lumbar extension logically considered detrimental to a patient with a herniated disc at L5-S1?",
+                options: [
+                    "Extension stretches the hip flexors excessively, destabilizing the pelvis.",
+                    "Extension forces the nucleus pulposus to migrate further anteriorly.",
+                    "Extension increases nerve impingement risk by maintaining posterior disc pressure.",
+                    "Extension severely decreases intra-abdominal pressure."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "When a patient correctly performs Williams Flexion Exercises, which pair of opposing mechanical effects logically occurs in the pelvic and lumbar region?",
+                options: [
+                    "Strengthening of the abdominals and stretching of the hip flexors/sacropinalis.",
+                    "Stretching of the abdominals and strengthening of the sacropinalis.",
+                    "Strengthening of the diaphragm and stretching of the pelvic floor.",
+                    "Stretching of the gluteus maximus and strengthening of the hip flexors."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "Why do core training programs logically favor unstable surfaces (like a Swiss ball) over traditional machine-based abdominal crunches?",
+                options: [
+                    "Unstable surfaces isolate the rectus abdominis more effectively for hypertrophy.",
+                    "Unstable surfaces activate multiple muscle groups and prevent muscle imbalances by avoiding abdominal isolation.",
+                    "Unstable surfaces permanently reduce the center of gravity.",
+                    "Unstable surfaces allow the patient to rest their paraspinal muscles completely."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "A sedentary office worker presents with low back pain. According to McKenzie's theory, what is the logical biomechanical cause of this pain related to their lifestyle?",
+                options: [
+                    "A continually extended lifestyle causes anterior disc migration.",
+                    "Prolonged sitting over-strengthens the sacropinalis muscles.",
+                    "A lack of abdominal hypertrophy leads to an immediate loss of pelvic floor support.",
+                    "A continually flexed lifestyle causes the nucleus pulposus to migrate posteriorly."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "If a physical therapist's primary goal is to open the intervertebral foramen and distract the apophyseal joints, which treatment approach is most logically indicated?",
+                options: [
+                    "McKenzie Extension Exercises",
+                    "Back Hyperextension Exercises",
+                    "Williams Flexion Exercises",
+                    "Static diaphragmatic breathing"
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient with low back pain asks if they should rest completely or keep moving. Under which of the following specific conditions should the physical therapist logically refer them for immediate medical attention instead of promoting exercise?",
+                options: [
+                    "If the pain occurs primarily after sitting for 30 minutes.",
+                    "If the pain is described as a dull, generalized ache.",
+                    "If the pain is accompanied by numbness, tingling, or bowel/bladder changes.",
+                    "If the pain restricts their ability to touch their toes."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "A patient has normal muscle strength and intact osseous/ligamentous elements but still suffers from spinal instability. According to the interacting elements of the spine stability system, what logical component is likely failing?",
+                options: [
+                    "The passive subsystem",
+                    "The active subsystem",
+                    "The intra-abdominal fascial system",
+                    "Neuromuscular control (providing proper sensory input and feedback)"
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "A patient with sacroiliac pain demonstrates poor spinal stabilization. Based on the 'muscular box' concept of the core, which two structures are logically likely to have impaired recruitment?",
+                options: [
+                    "Rectus abdominis and external obliques",
+                    "Diaphragm and pelvic floor",
+                    "Multifidus and longissimus capitis",
+                    "Pectoralis major and latissimus dorsi"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "During a heavy lift, a patient holds their breath and contracts their diaphragm. How does this diaphragmatic contraction logically contribute directly to spinal stability?",
+                options: [
+                    "It rapidly decreases the center of gravity.",
+                    "It mechanically fuses the L4 and L5 vertebrae.",
+                    "It stretches the transversus abdominis.",
+                    "It increases intra-abdominal pressure."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "Williams Flexion Exercises are specifically designed to reduce lumbar lordosis. Biomechanically, which muscles MUST logically be stretched (lengthened) to facilitate this reduction in lordosis?",
+                options: [
+                    "Abdominals and gluteus maximus",
+                    "Hip flexors and sacrospinalis",
+                    "Hamstrings and pelvic floor",
+                    "Diaphragm and multifidus"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "Why does the McKenzie protocol logically incorporate lumbar flexion exercises in its later stages, despite being primarily an extension-based approach?",
+                options: [
+                    "To ensure the patient regains and maintains a full range of both spinal flexion and extension.",
+                    "To permanently stretch the anterior longitudinal ligament.",
+                    "To deliberately reverse the healing process of the intervertebral disc.",
+                    "To treat the anterior disc displacement that inevitably results from early extension."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "A patient complains that their core stability program isn't giving them 'six-pack abs' (hypertrophy). How should the therapist logically explain the actual primary objective of core training?",
+                options: [
+                    "The goal is to isolate the rectus abdominis exclusively using heavy weights.",
+                    "The goal is not hypertrophy, but improving functional predispositions and intra/intermuscular coordination.",
+                    "The goal is to maximize the visual definition of the external obliques.",
+                    "The goal is to completely fatigue the passive subsystem of the spine."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "Based on its anatomical location, which abdominal muscle is logically most responsible for the superficial, segmented appearance commonly referred to as the 'six-pack'?",
+                options: [
+                    "Transverse abdominis",
+                    "Internal abdominal oblique",
+                    "External abdominal oblique",
+                    "Rectus abdominis"
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "Why are activities like walking, swimming, or cycling logically prescribed as 'medicine' for general lower back pain, as opposed to strict bed rest?",
+                options: [
+                    "They completely eliminate all compressive forces on the kinetic chain.",
+                    "They encourage mobility within limits, reduce stiffness, and improve function.",
+                    "They immediately reverse disc herniations at the L5-S1 level.",
+                    "They target and isolate the abdominal muscles better than core exercises."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "To effectively manage low back pain non-surgically, Williams Flexion Exercises target specific muscles for strengthening. Which two muscle groups are logically targeted to support the posterior pelvis and trunk during these movements?",
+                options: [
+                    "Hip flexors and rectus femoris",
+                    "Gluteus maximus and hamstrings",
+                    "Erector spinae and multifidus",
+                    "Diaphragm and external obliques"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "If a patient presents with pain due to 'adaptive shortening' and a 'loss of extension' resulting from modern lifestyle habits, which theorist's protocol logically addresses this specific mechanism?",
+                options: [
+                    "Robin McKenzie",
+                    "Paul Williams",
+                    "Joseph Pilates",
+                    "The founder of Tai Chi"
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "The concept that the core provides 'proximal stability for distal mobility' logically implies what about athletic performance?",
+                options: [
+                    "The limbs must be completely rigid for the core to move freely.",
+                    "A stable trunk is required as a foundational anchor before the limbs can effectively generate force and move.",
+                    "Proximal joints (like the wrist and ankle) rely on the mobility of the spine.",
+                    "Distal mobility is solely determined by the hypertrophy of the rectus abdominis."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "If the active subsystem (muscles) and passive subsystem (bones/ligaments) are functioning perfectly, why might the spine still become mechanically unstable?",
+                options: [
+                    "Because the transversus abdominis is too superficial to provide support.",
+                    "Because the intra-abdominal pressure is too high.",
+                    "Because the pelvic floor has disconnected from the diaphragm.",
+                    "Due to a lack of proper neural sensory input to alert the central nervous system for movement refinement."
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "A patient reports that their lower back pain does not change regardless of what position they are in or what movement they perform. What is the logical clinical action?",
+                options: [
+                    "Immediately initiate Williams Flexion Exercises.",
+                    "Immediately initiate McKenzie Extension Exercises.",
+                    "Seek medical attention, as this is considered a red flag.",
+                    "Prescribe rigorous core hypertrophy training."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "If a surgical incision is made strictly on the lateral (side) aspect of the abdomen, which two abdominal muscles are logically most at risk of being incised based on their anatomical location?",
+                options: [
+                    "Rectus abdominis and transversus abdominis",
+                    "External abdominal oblique and internal abdominal oblique",
+                    "Spinalis thoracis and longissimus capitis",
+                    "Iliocostalis lumborum and multifidus"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "What specific physiological milestone did Williams logically use to justify his widespread prescription of flexion exercises to manage back pain?",
+                options: [
+                    "The claim that all adults lose 50% of their core strength by age 30.",
+                    "The claim that the fifth lumbar disc has ruptured in the majority of all persons by the age of twenty.",
+                    "The claim that the sacrum fuses entirely to the pelvis during puberty.",
+                    "The claim that the rectus abdominis naturally atrophies without daily crunches."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "The McKenzie theory posits that spinal pain can be caused by mechanical deformation of soft tissue about the spine. What logical mechanism primarily causes this specific deformation according to his theory?",
+                options: [
+                    "A deficit in energy expenditure and caloric intake.",
+                    "Performing too many sit-ups.",
+                    "Adaptive shortening or postural stress.",
+                    "An overactive diaphragm."
+                ],
+                answer: 2,
+                explanation: ""
+            },
+            {
+                question: "Why are yoga and Tai Chi logically considered effective forms of core stability training?",
+                options: [
+                    "They act as disciplines of general body strength that require coordination of deep and superficial core muscles for balance.",
+                    "They focus exclusively on isolating the rectus abdominis for maximum hypertrophy.",
+                    "They are the only exercises that guarantee a reduction in abdominal fat.",
+                    "They strictly adhere to the Williams Flexion principles of maintaining continuous lumbar lordosis reduction."
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "A physical therapist instructs a patient to contract their transversus abdominis. Which other core structure will logically be coactivated during this specific muscle contraction to maintain the 'muscular box' integrity?",
+                options: [
+                    "The pelvic floor musculature",
+                    "The sternocleidomastoid",
+                    "The latissimus dorsi",
+                    "The external obliques only"
+                ],
+                answer: 0,
+                explanation: ""
+            },
+            {
+                question: "A patient performs back hyperextension exercises. Which specific muscle group is logically being targeted and strengthened in the posterior chain?",
+                options: [
+                    "Transversus abdominis",
+                    "Erector spinae",
+                    "Internal obliques",
+                    "Psoas major"
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "According to the foundational theory behind Williams Flexion Exercises, why do the L4-L5 and L5-S1 levels specifically bear the most stress?",
+                options: [
+                    "Because the spinal cord is thickest at these precise levels.",
+                    "Evolution to an upright posture shifted weight, causing these specific posterior discs to deform.",
+                    "These levels lack any ligamentous support structures.",
+                    "The pelvic floor directly pulls these vertebrae downward."
+                ],
+                answer: 1,
+                explanation: ""
+            },
+            {
+                question: "If a patient suffers an injury to the 'roof' of the core's muscular box, which specific muscle's function is logically impaired?",
+                options: [
+                    "Transversus abdominis",
+                    "Pelvic floor",
+                    "Multifidus",
+                    "Diaphragm"
+                ],
+                answer: 3,
+                explanation: ""
+            },
+            {
+                question: "A physical therapy student is comparing the Williams and McKenzie protocols. What is the logical paradox regarding the widespread clinical use of these two markedly different treatments?",
+                options: [
+                    "They both completely cure low back pain within a single session.",
+                    "Neither protocol allows the patient to perform physical activity.",
+                    "Both are widely prescribed despite a paucity of clinical evidence measuring their actual efficacy.",
+                    "Both protocols strictly forbid the use of any core musculature."
+                ],
+                answer: 2,
+                explanation: ""
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data
+        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        ${question.explanation ? `<br><br>Explanation: ${question.explanation}` : ''}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Core Stability and Back Pain Management.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        ${item.explanation ? `<div class="review-explanation">${item.explanation}</div>` : ''}
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
